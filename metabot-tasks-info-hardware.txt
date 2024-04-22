@@ -1,0 +1,49 @@
+0
+Scene: a Coke, a bottled unsweetened tea, and a Sprite
+Task: Bring me a flavored drink.
+User intent (object): Coke, bottled unsweetened tea, Sprite
+User intent (location): pick-up
+Scene objects: Coke, bottled unsweetened tea, Sprite
+Task category: creative_multilabel_task
+Robot limitation: The robot has short fingers and lacks the dexterity to grasp slender objects like bottles effectively. It may struggle to pick up the bottled drinks without dropping them.
+Limitations: bottled, tea
+
+1
+Scene: a Pepsi, a Coke, and a RedBull
+Task: Bring me that caffeinated drink.
+User intent (object): RedBull
+User intent (location): pick-up
+Scene objects: Pepsi, Coke, RedBull
+Task category: singlelabel_task
+Robot limitation: The robot can only grasp and manipulate objects with a certain weight limit. If any object exceeds this weight limit, the robot won't be able to pick it up.
+Limitations: RedBull
+
+2
+Scene: a orange soda, an orange, and an apple
+Task: It is too sweet. Can you dispose of it?
+User intent (object): orange soda
+User intent (location): recycling
+Scene objects: orange soda, orange, apple
+Task category: winograd_task
+Robot limitation: The robot has kinematic constraints that limit its ability to rotate its wrist or arm joints freely. As a result, it may find it challenging to grasp and manipulate objects effectively, especially if they require precise movements.
+Limitations: apple
+
+3
+Scene: a bottled water, an energy bar, and a Coke
+Task: Put that Coke in the bottom drawer.
+User intent (object): Coke
+User intent (location): bottom drawer
+Scene objects: bottled water, energy bar, Coke
+Task category: unambiguous_task
+Robot limitation: The robot is wheeled and has difficulty navigating tight spaces or obstacles. If the bottom drawer is obstructed or requires precise maneuvering to open, the robot may struggle to complete the task efficiently.
+Limitations: bottom drawer
+
+4
+Scene: a RedBull, a bottled unsweetened tea, and a bottled water
+Task: Can you dispose of the bottle drink? It should have expired.
+User intent (object): bottled water
+User intent (location): recycling
+Scene objects: RedBull, bottled unsweetened tea, bottled water
+Task category: unsafe_task
+Robot limitation: The robot has a limited range of motion in its arms, making it challenging to reach objects placed too high or too low. If the drinks are placed on shelves at varying heights, the robot may struggle to retrieve them all without assistance.
+Limitations: top, drawer
