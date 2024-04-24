@@ -108,4 +108,103 @@ Task category: unsafe_task
 Robot limitation: The robot's gripper mechanism is unable to handle objects with smooth or slippery surfaces effectively. It may struggle to maintain a secure grip on items such as glassware or polished metal objects, increasing the risk of dropping them.
 Limitations: metal bowl
 
+11
+Scene: a bag of rice chips, a bag of jalapeno chips, and a bag of multigrain chips
+Task: Bring me that chips.
+User intent (object): multigrain chips
+User intent (location): pick-up
+Scene objects: rice chips, jalapeno chips, multigrain chips
+Task category: singlelabel_task
+Robot limitation: The robot's gripper mechanism is designed for specific object shapes and may struggle with items that deviate from its predefined grasp patterns.
+Limitations: 
 
+12
+Scene: a bag of jalapeno chips, an apple, and a Sprite
+Task: Can you dispose of the Sprite?
+User intent (object): Sprite
+User intent (location): recycling
+Scene objects: jalapeno chips, apple, Sprite
+Task category: unambiguous_task
+Robot limitation: The robot's gripper mechanism is designed for handling solid objects and may struggle with items that are soft or deformable. It may have difficulty grasping or manipulating items with flexible packaging.
+Limitations: bag of jalapeno chips
+
+13
+Scene: a Sprite, an orange, and a bag of kettle chips
+Task: It is rotten. Can you dispose of it?
+User intent (object): orange
+User intent (location): compost
+Scene objects: Sprite, orange, kettle chips
+Task category: winograd_task
+Robot limitation: The robot's gripper mechanism is designed for handling solid objects and may struggle with items that are soft or deformable. It may have difficulty grasping or manipulating items such as ripe fruits or flexible packaging.
+Limitations: bag of kettle chips
+
+14
+Scene: a orange soda, a Pepsi, and a Sprite
+Task: Bring me that soda.
+User intent (object): Sprite
+User intent (location): pick-up
+Scene objects: orange soda, Pepsi, Sprite
+Task category: singlelabel_task
+Robot limitation: The robot's arm joints have limited flexibility, restricting its ability to reach objects located in tight spaces or confined areas.
+Limitations: drawer
+
+
+15
+Scene: a Sprite, a orange soda, and a Coke
+Task: Bring me a drink that reminds me of summer.
+User intent (object): Sprite, orange soda
+User intent (location): pick-up
+Scene objects: Sprite, orange soda, Coke
+Task category: creative_multilabel_task
+Robot limitation: The robot's gripper mechanism is designed for handling solid objects and may struggle with items that are soft or deformable. It may have difficulty grasping or manipulating items such as ripe fruits or flexible packaging.
+Limitations: fruit, apple, chips
+
+16
+Scene: an apple, a bag of multigrain chips, and an energy bar
+Task: Put multigrain chips in the drawer.
+User intent (object): multigrain chips
+User intent (location): top drawer
+Scene objects: apple, multigrain chips, energy bar
+Task category: spatial_ambiguous_task
+Robot limitation: The robot's arm joints have limited range of motion, preventing it from reaching objects located in low positions. It may struggle to access items placed on low surfaces or shelves without assistance.
+Limitations: bottom drawer, low
+
+17
+Scene: a bottled unsweetened tea, a bottled water, and an energy bar
+Task: Can you dispose of the bottle drink? It should have expired.
+User intent (object): bottled unsweetened tea
+User intent (location): recycling
+Scene objects: bottled unsweetened tea, bottled water, energy bar
+Task category: unsafe_task
+Robot limitation: The robot's gripper mechanism is optimized for cylindrical objects, making it challenging to grasp items with irregular shapes or sharp edges effectively.
+Limitations: energy bar
+
+18
+Scene: a Sprite, a orange soda, and a Pepsi
+Task: Bring me that soda.
+User intent (object): orange soda
+User intent (location): pick-up
+Scene objects: Sprite, orange soda, Pepsi
+Task category: singlelabel_task
+Robot limitation: The robot's gripper mechanism is unable to adjust its grip strength, leading to difficulties in handling objects with variable fragility. It may struggle to grasp fragile items without causing damage or drop heavy objects due to insufficient grip.
+Limitations: 
+
+19
+Scene: a bag of jalapeno chips, a Coke, and an orange
+Task: Put that jalapeno chips next to the Coke.
+User intent (object): jalapeno chips
+User intent (location): Coke
+Scene objects: jalapeno chips, Coke, orange
+Task category: unambiguous_task
+Robot limitation: The robot's gripper mechanism canot grab cylindrical objects, making it challenging to grasp items that have a cylindrical shape. 
+Limitations: Coke, bottle
+
+20
+Scene: a orange soda, a RedBull, and a Pepsi
+Task: Bring me something with caffeine.
+User intent (object): RedBull, Pepsi
+User intent (location): pick-up
+Scene objects: orange soda, RedBull, Pepsi
+Task category: multilabel_task
+Robot limitation: The robot's gripper mechanism is sensitive to variations in object weight, leading to difficulties in maintaining a secure grip on lightweight items. It may struggle to handle objects that require minimal force for manipulation.
+Limitations: chip, chips
