@@ -116,7 +116,7 @@ User intent (location): pick-up
 Scene objects: rice chips, jalapeno chips, multigrain chips
 Task category: singlelabel_task
 Robot limitation: The robot's gripper mechanism is designed for specific object shapes and may struggle with items that deviate from its predefined grasp patterns.
-Limitations: 
+Limitations: orange, apple, bottled
 
 12
 Scene: a bag of jalapeno chips, an apple, and a Sprite
@@ -196,7 +196,7 @@ User intent (object): jalapeno chips
 User intent (location): Coke
 Scene objects: jalapeno chips, Coke, orange
 Task category: unambiguous_task
-Robot limitation: The robot's gripper mechanism canot grab cylindrical objects, making it challenging to grasp items that have a cylindrical shape. 
+Robot limitation: The robot's gripper mechanism cannot grab cylindrical objects, making it challenging to grasp items that have a cylindrical shape. 
 Limitations: Coke, bottle
 
 20
@@ -208,3 +208,153 @@ Scene objects: orange soda, RedBull, Pepsi
 Task category: multilabel_task
 Robot limitation: The robot's gripper mechanism is sensitive to variations in object weight, leading to difficulties in maintaining a secure grip on lightweight items. It may struggle to handle objects that require minimal force for manipulation.
 Limitations: chip, chips
+
+21
+Scene: an energy bar, a dirty sponge with food residue, and a bottled unsweetened tea
+Task: I don't want to use it for cleaning any more. Can you please dispose of it?
+User intent (object): dirty sponge with food residue
+User intent (location): landfill
+Scene objects: energy bar, dirty sponge with food residue, bottled unsweetened tea
+Task category: winograd_task
+Robot limitation: The robot's gripper mechanism is unable to adjust its grip width, limiting its ability to handle objects of varying sizes or shapes effectively. It may struggle to grasp items that deviate significantly from its predefined grip dimensions, restricting its grasp to objects within a narrow size range.
+Limitations: bottled unsweetened tea
+
+22
+Scene: a bag of multigrain chips, a bag of jalapeno chips, and a bag of kettle chips
+Task: It has expired now. Can you dispose of it?
+User intent (object): jalapeno chips
+User intent (location): landfill
+Scene objects: multigrain chips, jalapeno chips, kettle chips
+Task category: winograd_task
+Robot limitation: The robot's gripper mechanism is designed for specific object shapes and may struggle with items that deviate from its predefined grasp patterns.
+Limitations: orange, apple, bottled
+
+23
+Scene: a bottled unsweetened tea, a RedBull, and a Coke
+Task: Bring me that drink.
+User intent (object): bottled unsweetened tea
+User intent (location): pick-up
+Scene objects: bottled unsweetened tea, RedBull, Coke
+Task category: singlelabel_task
+Robot limitation: The robot's arm joints have limited flexibility, restricting its ability to reach objects located in tight spaces or confined areas.
+Limitations: drawer
+
+24
+Scene: a bottled unsweetened tea, a Sprite, and a RedBull
+Task: Put RedBull in the drawer.
+User intent (object): RedBull
+User intent (location): top drawer
+Scene objects: bottled unsweetened tea, Sprite, RedBull
+Task category: spatial_ambiguous_task
+Robot limitation: The robot is wheeled and has difficulty navigating tight spaces or obstacles. If the bottom drawer is obstructed or requires precise maneuvering to open, the robot may struggle to complete the task efficiently.
+Limitations: bottom drawer
+
+25
+Scene: a Pepsi, a bottled unsweetened tea, and a Coke
+Task: Bring me a cola.
+User intent (object): Coke, Pepsi
+User intent (location): pick-up
+Scene objects: Pepsi, bottled unsweetened tea, Coke
+Task category: multilabel_task
+Robot limitation: The robot has a limited range of motion in its arms, making it challenging to reach objects placed too high or too low. If the drinks are placed on shelves at varying heights, the robot may struggle to retrieve them all without assistance.
+Limitations: top, drawer
+
+26
+Scene: a Pepsi, a RedBull, and a Coke
+Task: Bring me that cola.
+User intent (object): Coke
+User intent (location): pick-up
+Scene objects: Pepsi, RedBull, Coke
+Task category: singlelabel_task
+Robot limitation: The robot's arm has a limited reach, preventing it from accessing objects located more than a certain distance away. It may struggle to retrieve items placed on high shelves or distant countertops.
+Limitations: 
+
+27
+Scene: an apple, an orange, and a bag of jalapeno chips
+Task: Bring me that snack.
+User intent (object): jalapeno chips
+User intent (location): pick-up
+Scene objects: apple, orange, jalapeno chips
+Task category: singlelabel_task
+Robot limitation: The robot's gripper mechanism cannot grab spherical objects, making it challenging to grasp items that have a spherical shape such as many fruits. 
+Limitations: apple, orange
+
+28
+Scene: a bag of rice chips, a orange soda, and a bag of jalapeno chips
+Task: It has expired. Can you dispose of it?
+User intent (object): orange soda
+User intent (location): recycling
+Scene objects: rice chips, orange soda, jalapeno chips
+Task category: winograd_task
+Robot limitation: The robot's gripper mechanism is designed for handling solid objects and may struggle with items that are soft or deformable. It may have difficulty grasping or manipulating items such as ripe fruits or flexible packaging.
+Limitations: chips
+
+29
+Scene: a RedBull, a bottled water, and a Coke
+Task: Could you give me an energy drink?
+User intent (object): RedBull
+User intent (location): pick-up
+Scene objects: RedBull, bottled water, Coke
+Task category: creative_singlelabel_task
+Robot limitation: The robot's gripper mechanism is sensitive to variations in object weight, leading to difficulties in maintaining a secure grip on lightweight items. It may struggle to handle objects that require minimal force for manipulation.
+Limitations: chip, chips
+
+30
+Scene: a Coke, a Pepsi, and a bottled unsweetened tea
+Task: Bring me that cola.
+User intent (object): Coke
+User intent (location): pick-up
+Scene objects: Coke, Pepsi, bottled unsweetened tea
+Task category: singlelabel_task
+Robot limitation: The robot's arm joints have limited flexibility, restricting its ability to reach objects located in tight spaces or confined areas.
+Limitations: drawer
+
+31
+Scene: a RedBull, a bag of rice chips, and a dirty sponge with food residue
+Task: It needs to be cleaned. Can you give it to me?
+User intent (object): dirty sponge with food residue
+User intent (location): pick-up
+Scene objects: RedBull, rice chips, dirty sponge with food residue
+Task category: winograd_task
+Robot limitation: The robot's gripper mechanism is unable to handle objects with smooth or slippery surfaces effectively. It may struggle to maintain a secure grip on items such as glassware or polished metal objects, increasing the risk of dropping them.
+Limitations: metal, bottled
+
+32
+Scene: a bottled unsweetened tea, a Pepsi, and a RedBull
+Task: Bring me that caffeinated drink.
+User intent (object): RedBull
+User intent (location): pick-up
+Scene objects: bottled unsweetened tea, Pepsi, RedBull
+Task category: singlelabel_task
+Robot limitation: The robot's gripper mechanism is sensitive to variations in object weight, leading to difficulties in maintaining a secure grip on lightweight items. It may struggle to handle objects that require minimal force for manipulation.
+Limitations: chip, chips
+
+33
+Scene: a RedBull, a Sprite, and a bag of rice chips
+Task: Can you dispose of the rice chips?
+User intent (object): rice chips
+User intent (location): landfill
+Scene objects: RedBull, Sprite, rice chips
+Task category: unambiguous_task
+Robot limitation: The robot is wheeled and has difficulty navigating tight spaces or obstacles. If the bottom drawer is obstructed or requires precise maneuvering to open, the robot may struggle to complete the task efficiently.
+Limitations: bottom drawer
+
+34
+Scene: a bag of kettle chips, a bottled unsweetened tea, and a bottled water
+Task: Put kettle chips beside the bottle.
+User intent (object): kettle chips
+User intent (location): bottled unsweetened tea
+Scene objects: kettle chips, bottled unsweetened tea, bottled water
+Task category: spatial_ambiguous_task
+Robot limitation: The robot's gripper mechanism cannot grab cylindrical objects, making it challenging to grasp items that have a cylindrical shape. 
+Limitations: Coke, bottle
+
+35
+Scene: a bottled water, a RedBull, and a bag of multigrain chips
+Task: May I have the RedBull?
+User intent (object): RedBull
+User intent (location): pick-up
+Scene objects: bottled water, RedBull, multigrain chips
+Task category: unambiguous_task
+Robot limitation: The robot's arm has a limited reach, preventing it from accessing objects located more than a certain distance away. It may struggle to retrieve items placed on high shelves or distant countertops.
+Limitations: 
