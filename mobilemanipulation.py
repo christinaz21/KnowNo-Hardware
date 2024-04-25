@@ -1,4 +1,4 @@
-openai_api_key = "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"
+openai_api_key = "your-api-key"
 
 import openai
 import signal
