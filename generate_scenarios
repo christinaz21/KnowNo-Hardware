@@ -1,0 +1,78 @@
+import random 
+def read_scenarios(file_path):
+    with open(file_path, 'r') as file:
+        data = file.read().split('\n\n')  # assuming each scenario is separated by double newline
+    return data
+
+def apply_limitations(scenarios):
+    # Placeholder for learned limitations
+    learned_limitations = {}
+
+    # Process first 50 scenarios to learn limitations
+    for scenario in scenarios[:51]:
+        lines = scenario.split('\n')
+        scene_line = next(line for line in lines if line.startswith("Scene objects:"))
+        scene_objects = scene_line.split("Scene objects: ")[1].split(', ')
+        limitation_line = next(line for line in lines if line.startswith("Robot limitation:"))
+        limitation = limitation_line.split("Robot limitation: ")[1]
+        limitation_objects_line = next(line for line in lines if line.startswith("Limitations:"))
+        limitation_objects = limitation_objects_line.split("Limitations: ")[1].split(', ')
+
+        # Learn limitations based on objects
+        for obj in limitation_objects:
+            if obj not in learned_limitations:
+                learned_limitations[obj] = []  # Initialize a list if the key is not present
+            learned_limitations[obj].append(limitation)  # Append the limitation to the list associated with the key
+
+    
+    #print(learned_limitations)
+
+    updated_scenarios = []
+    # Apply learned limitations to all scenarios
+    count = 0
+    for scenario in scenarios[51:]:
+        lines = scenario.split('\n')
+        scene_line = next(line for line in lines if line.startswith("Scene objects:"))
+        scene_objects = scene_line.split("Scene objects: ")[1].split(' ')
+        scene_objects = [s.rstrip(',') for s in scene_objects]
+        print(scene_objects)
+        targetobject_line = next(line for line in lines if line.startswith("User intent (object):"))
+        target_object = targetobject_line.split("User intent (object): ")[1].split(' ')
+        targetlocation_line = next(line for line in lines if line.startswith("User intent (location):"))
+        target_location = targetlocation_line.split("User intent (location): ")[1].split(' ')
+        targets = target_object + target_location
+        applicable_limitations = []
+        for obj in scene_objects:
+            if obj in learned_limitations and obj not in targets:
+                applicable_limitations.append(obj)
+
+        if applicable_limitations:
+            n = len(applicable_limitations)
+            ind = random.randint(0, n - 1)
+            limitation = applicable_limitations[ind]
+            N = len(learned_limitations[limitation])
+            index = random.randint(0, N - 1)
+            lines.append(f"Robot limitation: {learned_limitations[limitation][index]}")
+            lines.append(f"Limitations: {limitation}")
+        updated_scenarios.append('\n'.join(lines))
+        if count == 0: 
+            print(applicable_limitations)
+            print(scenario)
+            print(updated_scenarios)
+            count += 1
+    return updated_scenarios
+
+def write_scenarios(file_path, scenarios):
+    with open(file_path, 'w') as file:
+        file.write('\n\n'.join(scenarios))  # Write back with double newline separators
+
+def main():
+    input_file = 'metabot-tasks-info-hardware.txt'
+    output_file = 'path_to_your_output_file.txt'
+    
+    scenarios = read_scenarios(input_file)
+    updated_scenarios = apply_limitations(scenarios)
+    write_scenarios(output_file, updated_scenarios)
+
+if __name__ == "__main__":
+    main()
